@@ -20,8 +20,8 @@ class ProgressController extends GetxController {
   final RxBool isLoading = true.obs;
 
   // Nombre total de cours et d'exercices
-  final int totalCourses = 10; // Exemple, à adapter selon les données réelles
-  final int totalExercises = 50; // Exemple, à adapter selon les données réelles
+  final int totalCourses = 10;
+  final int totalExercises = 50;
 
   @override
   void onInit() {

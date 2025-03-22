@@ -70,7 +70,15 @@ class ExercisesPage extends StatelessWidget {
                       itemCount: controller.filteredExercises.length,
                       itemBuilder: (context, index) {
                         final exercise = controller.filteredExercises[index];
-                        return _buildExerciseCard(exercise as Map<String, dynamic>);
+                        return _buildExerciseCard({
+                          'title': exercise.title,
+                          'type': exercise.type,
+                          'difficulty': exercise.difficulty,
+                          'points': exercise.points,
+                          'isCompleted': exercise.isCompleted,
+                          'score': exercise.score,
+                          'courseName': 'Cours associé',  // Valeur par défaut si pas disponible
+                        });
                       },
                     ),
                   );

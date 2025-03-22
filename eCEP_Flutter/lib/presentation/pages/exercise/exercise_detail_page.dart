@@ -6,7 +6,26 @@ import 'package:client/presentation/widgets/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 class ExerciseDetailPage extends StatelessWidget {
-  final Exercise exercise = Get.arguments;
+  final dynamic exerciseData = Get.arguments;
+
+  Exercise get exercise {
+    if (exerciseData is Exercise) {
+      return exerciseData;
+    }
+
+    // Conversion de Map en Exercise
+    Map<String, dynamic> map = exerciseData as Map<String, dynamic>;
+    return Exercise(
+      id: map['id'] ?? 0,
+      title: map['title'] ?? '',
+      type: map['type'] ?? '',
+      difficulty: map['difficulty'] ?? 1,
+      points: map['points'] ?? 0,
+      isCompleted: map['isCompleted'] ?? false,
+      score: map['score'] ?? 0,
+      questions: (map['questions'] as List?)?.map((q) => Question.fromJson(q)).toList() ?? [],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

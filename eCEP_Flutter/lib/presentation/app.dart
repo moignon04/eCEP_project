@@ -87,7 +87,7 @@ class App extends StatelessWidget {
           page: () => TeacherDashboardPage(),
         ),
         GetPage(
-          name: "class-progress",
+          name: "/class-progress",
           page: () => ClassProgressPage(),
         ),
 
